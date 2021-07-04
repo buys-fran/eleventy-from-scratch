@@ -1,3 +1,7 @@
+// Plugins
+const rssPlugin = require("@11ty/eleventy-plugin-rss");
+
+// Helpers
 const sortByDisplayOrder = require("./src/utils/sort-by-display-order.js");
 
 // Filters
@@ -35,6 +39,9 @@ module.exports = (config) => {
       return Number(a.fileSlug) > Number(b.fileSlug) ? 1 : -1;
     });
   });
+
+  // Plugins
+  config.addPlugin(rssPlugin);
 
   return {
     markdownTemplateEngine: "njk",
